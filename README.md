@@ -241,4 +241,4 @@ firebase deploy --only firestore:rules,storage
 
 ALU Connect is a functional Flutter + Firebase prototype for connecting ALU students with startup internship opportunities. It demonstrates a full student-startup workflow in a clean, polished interface while also showing how Firebase can be used for authentication, storage, and real-time data management.
 
-
+## Laura KARANGWA KWIZERA, the author
