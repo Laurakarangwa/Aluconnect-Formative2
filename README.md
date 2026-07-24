@@ -236,6 +236,10 @@ flutter test
 flutter run
 firebase deploy --only firestore:rules,storage
 ```
+<img width="608" height="1080" alt="image" src="https://github.com/user-attachments/assets/4f117e21-03e8-4d09-a19d-89f85ab39031" />
+<img width="1080" height="608" alt="image" src="https://github.com/user-attachments/assets/d478d631-15ff-4808-8032-8b4bdfd37e29" />
+
+
 
 ## 15. Summary
 
