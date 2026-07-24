@@ -1,3 +1,4 @@
+
 # ALU Connect
 
 ALU Connect is a Flutter-based internship and opportunity platform designed for the ALU assignment. It connects ALU students with startup opportunities and allows startup owners to post opportunities, review applications, and manage student interest in a simple, polished workflow.
@@ -239,3 +240,5 @@ firebase deploy --only firestore:rules,storage
 ## 15. Summary
 
 ALU Connect is a functional Flutter + Firebase prototype for connecting ALU students with startup internship opportunities. It demonstrates a full student-startup workflow in a clean, polished interface while also showing how Firebase can be used for authentication, storage, and real-time data management.
+
+
