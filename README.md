@@ -236,13 +236,14 @@ flutter test
 flutter run
 firebase deploy --only firestore:rules,storage
 ```
-<img width="608" height="1080" alt="image" src="https://github.com/user-attachments/assets/4f117e21-03e8-4d09-a19d-89f85ab39031" />
-<img width="1080" height="608" alt="image" src="https://github.com/user-attachments/assets/d478d631-15ff-4808-8032-8b4bdfd37e29" />
-
 
 
 ## 15. Summary
 
 ALU Connect is a functional Flutter + Firebase prototype for connecting ALU students with startup internship opportunities. It demonstrates a full student-startup workflow in a clean, polished interface while also showing how Firebase can be used for authentication, storage, and real-time data management.
+
+<img width="608" height="1080" alt="image" src="https://github.com/user-attachments/assets/4f117e21-03e8-4d09-a19d-89f85ab39031" />
+<img width="1080" height="608" alt="image" src="https://github.com/user-attachments/assets/d478d631-15ff-4808-8032-8b4bdfd37e29" />
+These are the evidences of how emulator refuses to open in the laptop.
 
 ## Laura KARANGWA KWIZERA, the author
