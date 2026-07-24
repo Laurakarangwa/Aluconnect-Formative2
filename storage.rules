@@ -1,0 +1,31 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isStudent() {
+      return isSignedIn() && get(/databases/(default)/documents/users/$(request.auth.uid)).data.role == 'student';
+    }
+
+    function isStartup() {
+      return isSignedIn() && get(/databases/(default)/documents/users/$(request.auth.uid)).data.role == 'startup';
+    }
+
+    match /applications/{applicationId}/{allPaths=**} {
+      allow read: if isSignedIn() && (
+        resource.metadata.uploadedBy == request.auth.uid ||
+        isStartup()
+      );
+      allow write: if isStudent()
+        && request.resource.metadata.uploadedBy == request.auth.uid
+        && request.resource.size < 10 * 1024 * 1024
+        && request.resource.contentType.matches('application/pdf|image/.*');
+    }
+
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

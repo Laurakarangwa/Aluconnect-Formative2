@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "662259367528",
+    "project_id": "formative-assignment-bba78",
+    "storage_bucket": "formative-assignment-bba78.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:662259367528:android:b348914b4c29929b4d05dd",
+        "android_client_info": {
+          "package_name": "com.example.formative_assignment"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDq9p0c_aZpIDMHtMbMLXdYiQoErHrU7Dg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

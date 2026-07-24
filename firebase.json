@@ -1,0 +1,30 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "formative-assignment-bba78",
+          "appId": "1:662259367528:android:b348914b4c29929b4d05dd",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "formative-assignment-bba78",
+          "configurations": {
+            "android": "1:662259367528:android:b348914b4c29929b4d05dd",
+            "ios": "1:662259367528:ios:ba6048720212713f4d05dd",
+            "web": "1:662259367528:web:fad2d91bbcb0fc594d05dd"
+          }
+        }
+      }
+    }
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "storage": {
+    "rules": "storage.rules"
+  }
+}

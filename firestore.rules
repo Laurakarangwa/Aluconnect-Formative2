@@ -1,0 +1,80 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function userData() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data;
+    }
+
+    function isStudent() {
+      return isSignedIn() && (
+        userData().role == 'student' ||
+        (userData().roles is list && userData().roles.hasAny(['student']))
+      );
+    }
+
+    function isStartup() {
+      return isSignedIn() && (
+        userData().role == 'startup' ||
+        (userData().roles is list && userData().roles.hasAny(['startup']))
+      );
+    }
+
+    function currentUserDoc() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid));
+    }
+
+    function currentStartupId() {
+      return currentUserDoc().data.startupId != null ? currentUserDoc().data.startupId : request.auth.uid;
+    }
+
+    function isOwnerOfStartup(startupIdToCheck) {
+      return isSignedIn() && (currentStartupId() == startupIdToCheck || request.auth.uid == startupIdToCheck);
+    }
+
+    match /users/{userId} {
+      allow read: if isSignedIn();
+      allow create: if request.auth.uid == userId
+        && request.resource.data.id == userId
+        && request.resource.data.email is string
+        && request.resource.data.role in ['student', 'startup']
+        && request.resource.data.createdAt is string;
+      allow update, delete: if request.auth.uid == userId
+        && request.resource.data.id == userId
+        && request.resource.data.role in ['student', 'startup'];
+    }
+
+    match /startups/{startupId} {
+      allow read: if isSignedIn();
+      allow create: if isStartup()
+        && request.resource.data.ownerId == request.auth.uid
+        && request.resource.data.id is string;
+      allow update, delete: if isStartup() && resource.data.ownerId == request.auth.uid;
+    }
+
+    match /opportunities/{opportunityId} {
+      allow read: if isSignedIn();
+      allow create: if isStartup()
+        && request.resource.data.startupId == currentStartupId()
+        && request.resource.data.id is string;
+      allow update, delete: if isStartup() && resource.data.startupId == currentStartupId();
+    }
+
+    match /applications/{applicationId} {
+      allow read: if isSignedIn() && (
+        resource.data.studentId == request.auth.uid ||
+        isOwnerOfStartup(get(/databases/$(database)/documents/opportunities/$(resource.data.opportunityId)).data.startupId)
+      );
+      allow create: if isStudent()
+        && request.resource.data.studentId == request.auth.uid
+        && request.resource.data.status == 'pending';
+      allow update: if isStartup()
+        && isOwnerOfStartup(get(/databases/$(database)/documents/opportunities/$(resource.data.opportunityId)).data.startupId)
+        && request.resource.data.status in ['pending', 'accepted', 'rejected'];
+      allow delete: if false;
+    }
+  }
+}
