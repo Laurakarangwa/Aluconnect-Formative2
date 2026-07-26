@@ -1,6 +1,8 @@
 
 # ALU Connect
 
+*Demo video: https://drive.google.com/file/d/1rRUzfF7ej5C2ufj4e0tQ-J5TG3YCmb7x/view?usp=sharing*
+
 ALU Connect is a Flutter-based internship and opportunity platform designed for the ALU assignment. It connects ALU students with startup opportunities and allows startup owners to post opportunities, review applications, and manage student interest in a simple, polished workflow.
 
 The application is built to demonstrate a complete end-to-end experience with authentication, role-based navigation, real-time data storage, and document uploads. It uses Firebase as the backend and Flutter for the mobile interface.
@@ -243,7 +245,7 @@ firebase deploy --only firestore:rules,storage
 ALU Connect is a functional Flutter + Firebase prototype for connecting ALU students with startup internship opportunities. It demonstrates a full student-startup workflow in a clean, polished interface while also showing how Firebase can be used for authentication, storage, and real-time data management.
 
 <img width="608" height="1080" alt="image" src="https://github.com/user-attachments/assets/4f117e21-03e8-4d09-a19d-89f85ab39031" />
-<img width="1080" height="608" alt="image" src="https://github.com/user-attachments/assets/d478d631-15ff-4808-8032-8b4bdfd37e29" />
-These are the evidences of how emulator refuses to open in the laptop.
+
+This is the picture of how emulator refuses to open on the laptop I borrowed.
 
 ## Laura KARANGWA KWIZERA, the author
